@@ -1,0 +1,30 @@
+#include<iostream>
+int global_fibo[1000];
+int fib_normal(int n)
+{
+    #Naive Recursion Method
+    if(n<=1)
+        return  n;
+    
+    return fib_normal(n-1)+fib_normal(n-2);
+}
+int fib_m1(int n)
+{
+    #Recusion with Dynamic Programming - Memoization - 1D
+    if(n<=1)
+    {
+        return n;
+    }
+    if(global_fibo[n]!=0)
+        return global_fibo[n];
+    else
+        return fib_m1(n-1)+fib_m1(n-2);
+}
+int main()
+{
+    //std::cout << fib_normal(9);
+    //std::cout << fib_normal(5);
+    std::cout << fib_m1(9);
+    std::cout << fib_m1(5);
+    return 0;
+}
